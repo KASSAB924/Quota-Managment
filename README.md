@@ -2,12 +2,7 @@
 
 A lightweight, dependency-free JS utility I built for managing dynamic quotas across multiple containers without mutating the source of truth on every UI interaction.
 
-## How to run
-Just serve the directory. No build steps required.
-```bash
-npx serve .
-```
-*(Or simply open `index.html` using the **Live Server** extension in VS Code).*
+
 
 ## Architecture Notes
 
