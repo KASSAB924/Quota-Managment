@@ -2,8 +2,6 @@
 
 A lightweight, dependency-free JS utility I built for managing dynamic quotas across multiple containers without mutating the source of truth on every UI interaction.
 
-
-
 ## Architecture Notes
 
 If you look at `QuotaManager.js`, you'll notice I don't immediately update the system state when a user clicks `+` or `-`. 
