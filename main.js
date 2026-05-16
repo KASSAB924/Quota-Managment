@@ -146,8 +146,13 @@ function renderContainers() {
     if (c.currentItems >= effectiveMax) status = 'full';
     else if (canAdd === 0) status = 'quota-limit';
 
+    const overCapacityWarning = c.currentItems > QuotaManager.maxPerContainer 
+      ? `<div class="over-capacity-tooltip">⚠️ Over Capacity! Reduce items.</div>` 
+      : '';
+
     return `
       <div class="container-card ${isActive ? 'active' : ''}" data-id="${c.id}">
+        ${overCapacityWarning}
         <div class="card-header">
           <span class="card-id">
             ${c.id}
@@ -178,3 +183,17 @@ function renderContainers() {
     `;
   }).join('');
 }
+
+// Update Max Per Container dynamically
+document.getElementById('ctrl-max').addEventListener('input', (e) => {
+  const newVal = parseInt(e.target.value) || 0;
+  QuotaManager.maxPerContainer = newVal;
+  renderAll();
+});
+
+// Update Total Global Quota dynamically
+document.getElementById('ctrl-total').addEventListener('input', (e) => {
+  const newVal = parseInt(e.target.value) || 0;
+  QuotaManager.globalTotalQuota = newVal;
+  renderAll();
+});

@@ -312,6 +312,28 @@ body {
   padding: 1.25rem;
   cursor: pointer;
   transition: border-color 0.2s, background 0.2s;
+  position: relative;
+}
+
+.over-capacity-tooltip {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background-color: var(--amber-alert);
+  color: #111;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8) translateY(10px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
 }
 
 .container-card:hover {
